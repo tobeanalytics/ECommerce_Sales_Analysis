@@ -25,5 +25,4 @@ Identify patterns to optimize revenue, product offerings, and customer segments.
 ### 🛠 Tools & Technologies
 - Python (Pandas, Matplotlib, Seaborn)
 - Jupyter Notebook
-- Excel (initial cleaning and validation)
-- GitHub for version control
+- Excel (initial cleaning & validation)
