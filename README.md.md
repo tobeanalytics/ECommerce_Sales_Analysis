@@ -1,5 +1,3 @@
-# data-analysis-practice
-My practice data analysis projects
 # E-Commerce Sales Analysis 
 
 ## Analysis Goal
@@ -25,4 +23,4 @@ Identify patterns to optimize revenue, product offerings, and customer segments.
 ### 🛠 Tools & Technologies
 - Python (Pandas, Matplotlib, Seaborn)
 - Jupyter Notebook
-- Excel (initial cleaning & validation)
+  
