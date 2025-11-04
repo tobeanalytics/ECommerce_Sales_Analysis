@@ -24,3 +24,15 @@ Identify patterns to optimize revenue, product offerings, and customer segments.
 - Python (Pandas, Matplotlib, Seaborn)
 - Jupyter Notebook
   
+## Intellectual Property Notice
+© 2025 Tobechukwu Edwin. All rights reserved.
+
+**Ecommerce_sales_analysis** is a proprietary Python project created by Tobechukwu Edwin.
+Its design, datasets, and insights are presented for professional portfolio display only.
+
+⚠ Unauthorized reproduction, modification, or commercial use of any part of this work is prohibited.
+
+For collaboration or data analytics opportunities, contact: [tobechukwuedwin61@gmail.com]
+
+## Note:
+- Interactive dashboard version under development - focusing on data modelling and insights in this version.
