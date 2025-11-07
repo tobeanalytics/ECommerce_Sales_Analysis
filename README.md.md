@@ -1,38 +1,76 @@
-# E-Commerce Sales Analysis 
+# E-Commerce Sales Analysis & Interactive Dashboard
 
-## Analysis Goal
-Analyze raw e-commerce transaction data to uncover sales trends, customer behavior, and product performance.  
-Identify patterns to optimize revenue, product offerings, and customer segments.
+## 📌 Overview
 
-### 🎯 Objectives
-- Cleaned and prepared 500k+ transaction records.
-- Identified missing values, duplicates, and inconsistent country names.
-- Created features such as TotalPrice and monthly time series.
-- Visualized sales performance by product, country, and time.
+- This project analyzes real-world e-commerce transaction data to uncover sales trends, customer behavior, and product performance.
+- It includes data preprocessing, feature engineering, and interactive visualization built with Python (Dash & Plotly) — enabling dynamic insights into revenue patterns and customer segments.
 
-### 📊 Key Visualizations
-- *Top 10 Selling Products*
-- *Total Sales by Country*
-- *Monthly Revenue Trends*
 
-### 🧠 Insights & Recommendations
-- UK generated ~90% of total revenue.
-- A few products dominate total sales — opportunity to focus on top sellers.
-- Strong seasonality observed around November–December (holiday boost).
 
-### 🛠 Tools & Technologies
-- Python (Pandas, Matplotlib, Seaborn)
-- Jupyter Notebook
-  
-## Intellectual Property Notice
+## 🎯 Project Objectives
+
+- Clean and prepared 500k+ transaction records from raw CSV data.
+
+- Handle missing values, duplicates, and inconsistent fields.
+
+- Engineer new metrics such as TotalPrice, OrderMonth, and Customer Type.
+
+- Develop an interactive dashboard to visualize KPIs and insights.
+
+- Support data-driven decision-making for business growth and retention.
+
+
+## 📊 Dashboard Highlights
+
+📈 Revenue Trends – Explore daily, weekly, and monthly performance.
+
+🌍 Sales by Country – Identify geographic revenue concentration.
+
+🏆 Top Products – View the best-selling products by total revenue.
+
+👥 Customer Segments – Compare High-Value vs Regular customer contribution.
+
+💰 KPI Metrics – Total Revenue, Unique Orders, and Unique Customers displayed interactively.
+
+
+## 🖥 Live Dashboard: ( https://ecommerce-dashboard-xfmh.onrender.com)
+
+
+
+## 🧠 Key Insights
+
+- UK contributed over 85–90% of total revenue.
+
+- A small number of products drive majority of total sales — strong opportunity for focused marketing.
+
+- Seasonal spikes appear around November–December, indicating holiday-driven demand.
+
+- High-Value Customers generate a disproportionate share of total revenue — retention focus recommended.
+
+
+
+## 🛠 Tools & Technologies
+
+Python – Core analysis and dashboard backend
+
+Pandas, NumPy – Data cleaning & transformation
+
+Plotly Dash – Interactive visualization and deployment
+
+Google Drive (Data Hosting) – Secure online data access
+
+Render – Cloud hosting for production-ready deployment
+
+
+## ⚖ Intellectual Property Notice
+
 © 2025 Tobechukwu Edwin. All rights reserved.
 
-**Ecommerce_sales_analysis** is a proprietary Python project created by Tobechukwu Edwin.
-Its design, datasets, and insights are presented for professional portfolio display only.
+**E-Commerce Sales Analysis** is a proprietary data analytics project created by Tobechukwu Edwin.
+All datasets, designs, and visual elements are presented solely for professional portfolio display.
 
-⚠ Unauthorized reproduction, modification, or commercial use of any part of this work is prohibited.
+> ⚠ Unauthorized reproduction, modification, or commercial use of any part of this work is prohibited.
 
-For collaboration or data analytics opportunities, contact: [tobechukwuedwin61@gmail.com]
 
-## Note:
-- Interactive dashboard version under development - focusing on data modelling and insights in this version.
+
+📩 Contact: tobechukwuedwin61@gmail.com
