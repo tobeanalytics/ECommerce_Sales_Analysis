@@ -1,0 +1,2 @@
+body { background: #f6f7fb; font-family: "Segoe UI", Roboto, Arial, sans-serif; }
+h2 { color: #007bff; }
