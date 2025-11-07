@@ -33,102 +33,100 @@ numeric_cols = ["Quantity", "UnitPrice", "TotalPrice", "Month", "Year"]
 app = Dash(__name__)
 server = app.server
 
-
 # Layout
 app.layout = html.Div([
-    html.H2("🛍 E-commerce Sales Dashboard",
-            style={"textAlign": "center", "color": "#007bff"}),
-
-    html.P("Explore sales trends, top products, and customer segments interactively.",
-           style={"textAlign": "center", "color": "#444"}),
-
-    # Filters
+    # Title & intro
     html.Div([
-        html.Label("📅 Date Range"),
-        dcc.DatePickerRange(
-            id="date-range",
-            start_date=df["InvoiceDate"].min().date(),
-            end_date=df["InvoiceDate"].max().date(),
-            display_format="YYYY-MM-DD"
-        ),
-        html.Br(), html.Br(),
+        html.H2("🛍 E-commerce Sales Dashboard",
+                style={"textAlign": "center", "color": "#007bff", "marginBottom": "0"}),
+        html.P("Explore sales trends, top products, and customer segments interactively.",
+               style={"textAlign": "center", "color": "#444", "marginBottom": "20px"})
+    ]),
 
-        html.Label("🌍 Country"),
-        dcc.Dropdown(
-            id="country-filter",
-            options=[{"label": c, "value": c} for c in sorted(df["Country"].dropna().unique())],
-            multi=True,
-            placeholder="Select countries (leave empty = all)"
-        ),
-        html.Br(),
-
-        html.Label("⭐ Customer Type"),
-        dcc.RadioItems(
-            id="customer-type",
-            options=[
-                {"label": "All", "value": "all"},
-                {"label": "High-Value Only", "value": "yes"},
-                {"label": "Regular Only", "value": "no"},
-            ],
-            value="all",
-            labelStyle={"display": "block"}
-        ),
-        html.Br(),
-
-        html.Label("Top N Products"),
-        dcc.Slider(
-            id="top-n",
-            min=5, max=50, step=5, value=10,
-            marks={i: str(i) for i in [5, 10, 20, 30, 40, 50]}
-        ),
-    ], style={
-        "background": "#f8f9fa", "padding": "15px",
-        "width": "22%", "display": "inline-block",
-        "verticalAlign": "top", "borderRadius": "8px",
-        "boxShadow": "0 1px 4px rgba(0,0,0,0.1)"
-    }),
-
-    # Main content
+    # Main wrapper (sidebar + content)
     html.Div([
-        html.Div(id="kpi-row", style={"display": "flex", "gap": "10px"}),
-
+        # Sidebar filters
         html.Div([
-            dcc.Graph(id="sales-trend"),
-        ], style={"marginTop": "20px"}),
+            html.H4("🔍 Filters", style={"color": "#333", "marginBottom": "15px"}),
 
+            html.Label("📅 Date Range"),
+            dcc.DatePickerRange(
+                id="date-range",
+                start_date=df["InvoiceDate"].min().date(),
+                end_date=df["InvoiceDate"].max().date(),
+                display_format="YYYY-MM-DD"
+            ),
+            html.Br(), html.Br(),
+
+            html.Label("🌍 Country"),
+            dcc.Dropdown(
+                id="country-filter",
+                options=[{"label": c, "value": c} for c in sorted(df["Country"].dropna().unique())],
+                multi=True,
+                placeholder="Select countries (leave empty = all)"
+            ),
+            html.Br(),
+
+            html.Label("⭐ Customer Type"),
+            dcc.RadioItems(
+                id="customer-type",
+                options=[
+                    {"label": "All", "value": "all"},
+                    {"label": "High-Value Only", "value": "yes"},
+                    {"label": "Regular Only", "value": "no"},
+                ],
+                value="all",
+                labelStyle={"display": "block"}
+            ),
+            html.Br(),
+
+            html.Label("🏆 Top N Products"),
+            dcc.Slider(
+                id="top-n",
+                min=5, max=50, step=5, value=10,
+                marks={i: str(i) for i in [5, 10, 20, 30, 40, 50]}
+            ),
+        ], style={
+            "background": "#f8f9fa",
+            "padding": "18px",
+            "width": "22%",
+            "borderRadius": "8px",
+            "boxShadow": "0 1px 4px rgba(0,0,0,0.1)",
+            "position": "fixed",
+            "top": "120px",
+            "bottom": "20px",
+            "overflowY": "auto"
+        }),
+
+        # Main content
         html.Div([
-            dcc.Graph(id="top-products", style={"width": "49%", "display": "inline-block"}),
-            dcc.Graph(id="sales-by-country", style={"width": "49%", "display": "inline-block"}),
-        ]),
+            html.Div(id="kpi-row", style={"display": "flex", "gap": "10px"}),
 
-        html.Div([
-            dcc.Graph(id="customer-segment"),
-        ]),
+            html.Div([
+                dcc.Graph(id="sales-trend"),
+            ], style={"marginTop": "20px"}),
 
-        html.Hr(),
-        html.H4("Sample Transactions"),
-        html.Div(id="sample-table", style={"overflowX": "auto"}),
-    ], style={
-        "display": "inline-block", "width": "75%", "paddingLeft": "20px",
-        "verticalAlign": "top"
-    })
+            html.Div([
+                dcc.Graph(id="top-products", style={"width": "49%", "display": "inline-block"}),
+                dcc.Graph(id="sales-by-country", style={"width": "49%", "display": "inline-block"}),
+            ], style={"marginTop": "20px"}),
+
+            html.Div([
+                dcc.Graph(id="customer-segment"),
+            ], style={"marginTop": "20px"}),
+
+            html.Hr(),
+            html.H4("📋 Sample Transactions", style={"marginTop": "10px"}),
+            html.Div(id="sample-table", style={"overflowX": "auto"}),
+            html.Div(style={"height": "20px"})
+        ], style={
+            "marginLeft": "25%",
+            "padding": "10px 25px",
+            "maxWidth": "1100px",
+            "fontFamily": "Segoe UI, sans-serif"
+        })
+    ])
 ], style={"fontFamily": "Segoe UI, sans-serif", "padding": "20px", "background": "#f6f7fb"})
-
-html.Div(
-    [
-        html.Hr(),
-        html.P(
-            "📂 Data Source: Loaded securely from Google Drive",
-            style={
-                "textAlign": "center",
-                "fontSize": "14px",
-                "color": "#555",
-                "marginTop": "20px",
-                "fontStyle": "italic"
-            },
-        ),
-    ]
-)
 
 
 # Aggregate by frequency
