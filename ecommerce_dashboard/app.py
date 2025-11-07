@@ -7,8 +7,8 @@ import plotly.graph_objects as go
 
 
 # Load data
-df = pd.read_csv("ecommerce_sample.csv")
-
+url = "https://drive.google.com/uc?export=download&id=1nBqxY2g-B1KGFbI3AxNbhYLlwyjpae8m"
+df = pd.read_csv(url)
 # Parse InvoiceDate to datetime
 df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], errors="coerce")
 
@@ -28,10 +28,7 @@ df["OrderWeek"] = df["InvoiceDate"].dt.to_period("W").dt.start_time
 # Convert numeric columns safely
 numeric_cols = ["Quantity", "UnitPrice", "TotalPrice", "Month", "Year"]
 
-for col in numeric_cols:
-    df[col] = pd.to_numeric(df[col], errors="coerce")
 
-df[numeric_cols] = df[numeric_cols].fillna(0)
 # Initialize Dash
 app = Dash(__name__)
 server = app.server
@@ -116,6 +113,22 @@ app.layout = html.Div([
         "verticalAlign": "top"
     })
 ], style={"fontFamily": "Segoe UI, sans-serif", "padding": "20px", "background": "#f6f7fb"})
+
+html.Div(
+    [
+        html.Hr(),
+        html.P(
+            "📂 Data Source: Loaded securely from Google Drive",
+            style={
+                "textAlign": "center",
+                "fontSize": "14px",
+                "color": "#555",
+                "marginTop": "20px",
+                "fontStyle": "italic"
+            },
+        ),
+    ]
+)
 
 
 # Aggregate by frequency
